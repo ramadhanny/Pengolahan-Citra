@@ -1,0 +1,13 @@
+im=imread('e:\cacat.jpg');
+hsv=rgb2hsv(im);
+s=hsv(:,:,2);
+se=[0 1 0;1 1 1;0 1 0];
+op=imopen(s,se);
+%se1=strel('disk',1);
+%se1=strel('line',10,10);
+se1=strel('square',1);
+cl=imclose(s,se1);
+t=edge(cl,'sobel');
+subplot(2,2,1), imshow(s); subplot(2,2,2), imshow(t);
+%dil=imdilate();
+%er=imerode();
